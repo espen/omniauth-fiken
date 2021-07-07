@@ -22,6 +22,19 @@ module OmniAuth
           },
         }
 
+      # The Fiken API requires HTTP Basic Authentication when exchanging the
+      # code for a token (i.e. when POSTing to /v1/oauth/token)
+      def build_access_token
+        options.token_params.merge!(
+          headers: { 'Authorization' => basic_auth_header },
+        )
+        super
+      end
+
+      def basic_auth_header
+        "Basic " + Base64.strict_encode64("#{options[:client_id]}:#{options[:client_secret]}")
+      end
+
       def callback_url
         full_host + script_name + callback_path
       end
