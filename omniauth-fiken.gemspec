@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{OmniAuth strategy for Fiken using OAuth2}
   gem.summary       = %q{OmniAuth strategy for Fiken using OAuth2}
   gem.license       = 'MIT'
-  gem.homepage      = "https://github.com/jeremiahchurch/omniauth-fiken"
+  gem.homepage      = "https://github.com/espen/omniauth-fiken"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
